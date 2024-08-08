@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "formflow"
+version = "0.1.0"
+description = ""
+authors = ["hamid <xhamid0011@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^5.1"
+django-restframework = "^0.0.1"
+celery = "^5.4.0"
+redis = "^5.0.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
