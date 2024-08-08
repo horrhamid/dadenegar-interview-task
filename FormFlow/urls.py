@@ -15,8 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf import settings
+from .setup_urls import setup
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("v1/", include("FormFlow.api.v1.urls", namespace="v1"))
 ]
+urlpatterns = setup(urlpatterns)

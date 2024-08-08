@@ -2,9 +2,15 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+# import dotenv
+from dotenv import load_dotenv
 
 
 def main():
+    try:
+        load_dotenv()
+    except Exception as e:
+        print("in deployment")
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FormFlow.settings')
     try:
