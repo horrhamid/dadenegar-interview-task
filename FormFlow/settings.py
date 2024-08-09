@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     "drf_yasg",
     "rest_framework",
     "authentication",
+    "survey",
 ]
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
