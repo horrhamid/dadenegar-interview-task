@@ -24,7 +24,7 @@ class BothHttpAndHttpsSchemaGenerator(OpenAPISchemaGenerator):
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="sejam_service API",
+        title="FormFlow API",
         default_version="0.0.1",
     ),
     generator_class=BothHttpAndHttpsSchemaGenerator,
@@ -63,32 +63,8 @@ def setup_django_admin(urlpatterns):
     return urlpatterns
 
 
-def setup_statics(urlpatterns):
-    urlpatterns.append(
-        re_path(
-            r"^%s(?P<path>.*)$" % re.escape(settings.STATIC_URL.lstrip("/")),
-            serve,
-            kwargs={"document_root": settings.STATIC_ROOT},
-        )
-    )
-    return urlpatterns
-
-
-def setup_media(urlpatterns):
-    urlpatterns.append(
-        re_path(
-            r"^%s(?P<path>.*)$" % re.escape(settings.MEDIA_URL.lstrip("/")),
-            serve,
-            kwargs={"document_root": settings.MEDIA_ROOT},
-        )
-    )
-    return urlpatterns
-
-
 def setup(urlpatterns):
     urlpatterns = setup_swagger(urlpatterns)
     urlpatterns = setup_redoc(urlpatterns)
     urlpatterns = setup_django_admin(urlpatterns)
-    urlpatterns = setup_statics(urlpatterns)
-    urlpatterns = setup_media(urlpatterns)
     return urlpatterns

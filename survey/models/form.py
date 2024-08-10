@@ -21,12 +21,10 @@ class Form(models.AuditableModel):
     published_at = models.DateTimeField(null=True, blank=True, default=None)
     archived_at = models.DateTimeField(null=True, blank=True, default=None)
     owner = models.ForeignKey(
-        to="Authentication.User",
-        on_delete=models.SET_NULL,
+        to="authentication.User",
+        on_delete=models.CASCADE,
         related_name="forms",
-        related_query_name="form",
-        null=True,
-        default=None
+        related_query_name="form"
     )
 
     def publish(self):
