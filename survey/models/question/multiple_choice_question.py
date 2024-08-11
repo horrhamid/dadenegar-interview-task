@@ -3,6 +3,7 @@ from .question import Question, models
 
 class MultipleChoiceQuestion(Question):
     allow_multiple = models.BooleanField(default=False)
+    choices = models.JSONField()
 
     def validate_answer(self, answer):
         if self.allow_multiple:

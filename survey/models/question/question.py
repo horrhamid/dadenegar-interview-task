@@ -2,7 +2,6 @@ from core import models
 
 
 class Question(models.AuditableModel):
-
     class QuestionTypeChoices(models.TextChoices):
         TEXT = "TE", "تشریحی"
         RATING = "RA", "نظرسنجی"
